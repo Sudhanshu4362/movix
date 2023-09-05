@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 import Img from "../../../components/lazyLoadImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
+import { fetchDataFromApi } from "../../../utils/api";
 
 const HeroBanner = () => {
   const [background, setBackground] = useState("");
@@ -28,6 +29,9 @@ const HeroBanner = () => {
       navigate(`/search/${query}`);
     }
   };
+  const handleClick = () =>{
+    navigate(`/search/${query}`);
+  }
   return (
     <div className="heroBanner">
       {!loading && (
@@ -49,7 +53,7 @@ const HeroBanner = () => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
-            <button>Search</button>
+            <button onClick={handleClick}>Search</button>
           </div>
         </div>
       </ContentWrapper>
